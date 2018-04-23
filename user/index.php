@@ -26,8 +26,8 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="user" ){
 		window.location.href='delete_forum.php?QuestionID='+id;
 		}
 	}
-	function view_forum(id){
-		window.location.href='viewForum.php?QuestionID='+id;
+	function view_forum(view){
+		window.location.href='viewForum.php?QuestionID='+view;
 	}
 	
 	
@@ -47,12 +47,6 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="user" ){
           <a class="nav-link" href="../index.php">
             <i class="fa fa-fw fa-book" ></i>
             <span class="nav-link-text">หน้าแรก</span>
-          </a>
-        </li>
-        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.php">
-            <i class="fa fa-fw fa-book" ></i>
-            <span class="nav-link-text">จัดการกระทู้</span>
           </a>
         </li>
       </ul>
@@ -142,7 +136,7 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="user" ){
 			  ?>
                 <tr>
                   <td><?php echo $i;?></td>
-				  <td><?php echo $Result["Question"];?></td>
+				  <td><?php echo $Result["Question"].$Result["QuestionID"];?></td>
                   <td><?php echo $Result["viewReply"];?></td>
                   <td><?php echo $Result["cate_name"];?></td>
                   <td><?php echo $Result["Name"]."[".$Result["ip_address"]."]";?></td>
@@ -152,7 +146,7 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="user" ){
 					  }else{ echo "ปกติ";}?></td>
                   <td>
                   <?php if($status==1){?>
-                  <a href="javascript:delete_forum(<?php echo $QuestionID; ?>)"><img src="../img/Delete_Icon.png" width="30"></a><a href="javascript:view_forum(<?php echo $QuestionID; ?>)"><img src="../img/view.png" width="30"></a>
+                  <a href="javascript:delete_forum('<?php echo $QuestionID; ?>')"><img src="../img/Delete_Icon.png" width="30"></a><a href="javascript:view_forum('<?php echo $QuestionID; ?>')"><img src="../img/view.png" width="30"></a>
 				  <?php }else{?>
                   <img src="../img/Delete_Icon.png" width="30">
                   <img src="../img/view.png" width="30">
@@ -186,15 +180,15 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="user" ){
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">แน่ใจเหรอ?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">คุณต้องการออกจากระบบใช่มั้ย</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="../logout.php">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+            <a class="btn btn-primary" href="../logout.php">ออกจากระบบ</a>
           </div>
         </div>
       </div>

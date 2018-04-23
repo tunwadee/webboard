@@ -80,51 +80,54 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin" ){
     <div class="content-wrapper">
     <div class="container-fluid">
   <div class="container">
-    <div class="card card-register mx-auto mt-5"  id="card">
+    <div class="card card-register mx-auto mt-5">
       <div class="card-header">เพิ่มuser</div>
-      <div id="content-err" style="display:none"><ul><li><strong>tunwadee</strong></li></ul></div>
-      <div class="card-body">
+      <div id="content-err" style="display:none"></div>
+      <div class="card-body" id="card">
         <form>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-12">
-                <label for="exampleInputName">คำถาม :</label>
-                <input class="form-control" id="question" type="text" aria-describedby="nameHelp" placeholder="คำถาม">
+                <label for="exampleuser_fullname">ชื่อ-นามสกุล :</label>
+                <input class="form-control" id="user_fullname"  name="user_fullname" type="text" aria-describedby="user_fullname" placeholder="ชื่อ-นามสกุล">
               </div>
               <div class="col-md-12">
-                <label for="cate_id">เลือกหมวดหมู่ :</label>
-                <select class="form-control" id="cate_id">
+                <label for="exampleuser_login">email (user_login) :</label>
+                <input class="form-control" id="user_login" name="user_login"  type="text" aria-describedby="user_login" placeholder="user_login">
+              </div>
+               <div class="col-md-12">
+                <label for="exampleUser_password">รหัสผ่าน :</label>
+                <input class="form-control" id="user_password" name="user_password"  type="password" aria-describedby="user_login" placeholder="รหัสผ่าน">
+              </div>
+               <div class="col-md-12">
+                <label for="exampleUser_Confpassword">ยืนยันรหัสผ่าน :</label>
+               <input class="form-control" id="user_Confpassword"  name="user_Confpassword" type="password" aria-describedby="user_login" placeholder="ยืนยันรหัสผ่าน">
+              </div>
+              <div class="col-md-12">
+                <label for="cate_id">สิทธิ์เข้าใช้งาน :</label>
+                <select class="form-control" id="user_type" name="user_type">
                 <option value=""><--กรุณาเลือก--></option>
                 <?php
                 include("../conf/config.php");
-				$sql = "select cate_id,cate_name from category where status=1 ";
+				$sql = "select user_type_id,user_type_name from user_type where status=1 ";
 				$objQuery = mysqli_query($con,$sql);
 				while ($Result = mysqli_fetch_array($objQuery)) {
 					?>
-				<option value="<?php echo $Result["cate_id"];?>"><?php echo $Result["cate_name"];?></option>	
+				<option value="<?php echo $Result["user_type_id"];?>"><?php echo $Result["user_type_name"];?></option>	
 					<?php
 				}
 				?>
                 </select>
               </div>
-              <div class="col-md-12">
-                <label for="exampleInputLastName">รายละเอียด :</label>
-                <textarea class="form-control" id="detail" type="text" aria-describedby="nameHelp" placeholder="รายละเอียด"></textarea>
-        
-              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">ชื่อผู้ตั้งกระทู้</label>
-            <input type="email" class="form-control" id="name" placeholder="ชื่อผู้ตั้งกระทู้" value="<?php echo $_SESSION["session_user"];?>" aria-describedby="emailHelp" disabled>
-          </div>        
- 		<a class="btn btn-primary btn-block" href="#"  onClick="FshowPreview()">ตกลง</a>
-          <a class="btn btn-primary btn-block" href="#"  onClick="checkValidate()">ยกเลิก</a>
+          </div>     
+ 		<a class="btn btn-primary btn-block" href="#"  onClick="checkValidate()">ตกลง</a>
+          <a class="btn btn-primary btn-block" href="#"  onClick="reset_form()">ยกเลิก</a>
         </form>
-       
       </div> 
-      </div>
       <div id="showPreview" style="display:none"></div>
+      </div>
+      
   	</div>
   
   </div>
@@ -149,15 +152,19 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin" ){
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">แน่ใจเหรอ?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">คุณต้องการออกจากระบบใช่มั้ย</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="../logout.php">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+            <a class="btn btn-primary" href="../logout.php">ออกจากระบบ</a>
+          </div>
+                  </div>
+      </div>
+    </div>
                 <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

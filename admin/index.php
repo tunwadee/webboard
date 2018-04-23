@@ -148,8 +148,8 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin" ){
 					  echo "<font color=red>ยกเลิก</font>";
 					  }else{ echo "ปกติ";}?></td>
                   <td>
-                  <?php if($status==0){?>
-                  <a href="javascript:delete_forum(<?php echo $QuestionID; ?>)"><img src="../img/Delete_Icon.png" width="30"></a><a href="javascript:view_forum(<?php echo $QuestionID; ?>)"><img src="../img/view.png" width="30"></a>
+                  <?php if($status==1){?>
+                  <a href="javascript:delete_forum('<?php echo $QuestionID; ?>')"><img src="../img/Delete_Icon.png" width="30"></a><a href="javascript:view_forum('<?php echo $QuestionID; ?>)'"><img src="../img/view.png" width="30"></a>
 				  <?php }else{?>
                   <img src="../img/Delete_Icon.png" width="30">
                   <img src="../img/view.png" width="30">
@@ -183,15 +183,15 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin" ){
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">แน่ใจเหรอ?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">คุณต้องการออกจากระบบใช่มั้ย</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="../logout.php">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+            <a class="btn btn-primary" href="../logout.php">ออกจากระบบ</a>
           </div>
         </div>
       </div>

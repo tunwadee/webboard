@@ -22,10 +22,9 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin" ){
   <link href="../css/sb-admin.css" rel="stylesheet">
   <script type="text/javascript">
 	function delete_user(id){
-		/*if(confirm('ยืนยันการลบข้อมูล?')){
+		if(confirm('ยืนยันการลบข้อมูล?')){
 		window.location.href='delete_user.php?user_login='+id;
-		}*/
-		alert('gfgdfgfd');
+		}
 	}
 	
   </script>
@@ -142,7 +141,7 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin" ){
 					  }else{ echo "ปกติ";}?></td>
                   <td>
                   <?php if($status==1){?>
-                  <a href="javascript:delete_user(<?php echo $user_login; ?>)"><img src="../img/Delete_Icon.png" width="30"></a>
+                  <a href="javascript:delete_user('<?php echo $user_login; ?>')"><img src="../img/Delete_Icon.png" width="30"></a>
 				  <?php }else{?>
                   <img src="../img/Delete_Icon.png" width="30">
 				  <?php } ?></td>
@@ -175,15 +174,15 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin" ){
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">แน่ใจเหรอ?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">คุณต้องการออกจากระบบใช่มั้ย</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="../logout.php">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+            <a class="btn btn-primary" href="../logout.php">ออกจากระบบ</a>
           </div>
         </div>
       </div>

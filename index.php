@@ -35,7 +35,7 @@ session_start();
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.html">Start Bootstrap</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -51,6 +51,78 @@ session_start();
       </ul>
       <ul class="navbar-nav ml-auto">
       <?php if(isset($_SESSION["session_user"])==""){?>
+      <li class="nav-item">
+          <a href = "login.php">
+            <i class="fa fa-fw fa-key"></i>Login</a>
+        </li>
+      
+      <?php }else{?>
+		<li class="nav-item">
+        	<a class="nav-link" data-toggle="modal" >
+            <i class="fa fa-fw fa-users"></i><?php echo $_SESSION["session_user"];?></a></li>
+       <li class="nav-item">     
+            <a  href="user/index.php" class="nav-link"><i class="fa fa-fw fa-unlock"></i>จัดการข้อมูลส่วนตัว</a>
+       </li> 
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+        <?php } ?>
+      </ul>          
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="../index.php">
+            <i class="fa fa-fw fa-book" ></i>
+            <span class="nav-link-text">หน้าแรก</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      <?php if(isset($_SESSION["session_user"])==""){?>
+      <li class="nav-item">
+          <a href = "login.php">
+            <i class="fa fa-fw fa-key"></i>Login</a>
+        </li>
+      
+      <?php }else{?>
+		<li class="nav-item">
+        	<a class="nav-link" data-toggle="modal" >
+            <i class="fa fa-fw fa-users"></i><?php echo $_SESSION["session_user"];?></a></li>
+       <li class="nav-item">     
+            <a  href="user/index.php" class="nav-link"><i class="fa fa-fw fa-unlock"></i>จัดการข้อมูลส่วนตัว</a>
+       </li> 
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+        <?php } ?>
+      </ul>
+    </div>
+  </nav>-->
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="../index.php">
+            <i class="fa fa-fw fa-book" ></i>
+            <span class="nav-link-text">หน้าแรก</span>
+          </a>
+        </li>
+      </ul>  
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <?php if(isset($_SESSION["session_user"])==""){?>
       <li class="nav-item">
           <a href = "login.php">
             <i class="fa fa-fw fa-key"></i>Login</a>
@@ -88,7 +160,7 @@ session_start();
         <div class="card-body">
           <div class="table-responsive">
           <?php if(isset($_SESSION["session_user"])==""){?>
-          <div>กรุณาเข้าสู๋ระบบเพื่อตั้งกระทู้</div>
+          <div><font color=red>กรุณาเข้าสู่ระบบเพื่อตั้งกระทู้</font></div>
           <?php }else{?>
           <div><a href="formAdd_forum.php"><img src="img/add.png" width="36" height="35"> ตั้งกระทู้</a></div>
           <?php } ?>
@@ -177,15 +249,15 @@ session_start();
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">ต้องการออกจากระบบ ??</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="logout.php">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+            <a class="btn btn-primary" href="logout.php">ออกจากระบบ</a>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Bootstrap core JavaScript-->
+      </div>
+     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
@@ -199,7 +271,25 @@ session_start();
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-  </div>
+        <!-- Custom scripts for this page-->
+    <!-- Toggle between fixed and static navbar-->
+    <script>
+    $('#toggleNavPosition').click(function() {
+      $('body').toggleClass('fixed-nav');
+      $('nav').toggleClass('fixed-top static-top');
+    });
+
+    </script>
+    <!-- Toggle between dark and light navbar-->
+    <script>
+    $('#toggleNavColor').click(function() {
+      $('nav').toggleClass('navbar-dark navbar-light');
+      $('nav').toggleClass('bg-dark bg-light');
+      $('body').toggleClass('bg-dark bg-light');
+    });
+
+    </script>
+</div>
 </body>
 
 </html>

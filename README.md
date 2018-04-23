@@ -3,7 +3,7 @@
 
 ## Preview
 
-<img src="img/icon.jpg">
+<img src="img/Preview.png">
 **[View Live Preview](https://github.com/tunwadee/webboard)**
 
 ## Status

@@ -1,5 +1,6 @@
 <?php 
 session_start();
+error_reporting(~E_NOTICE);
 if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin" ){
 ?>
 <!DOCTYPE html>
@@ -149,7 +150,7 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin" ){
 					  }else{ echo "ปกติ";}?></td>
                   <td>
                   <?php if($status==1){?>
-                  <a href="javascript:delete_forum('<?php echo $QuestionID; ?>')"><img src="../img/Delete_Icon.png" width="30"></a><a href="javascript:view_forum('<?php echo $QuestionID; ?>)'"><img src="../img/view.png" width="30"></a>
+                  <a href="javascript:delete_forum('<?php echo $QuestionID; ?>')"><img src="../img/Delete_Icon.png" width="30"></a><a href="javascript:view_forum('<?php echo $QuestionID; ?>')"><img src="../img/view.png" width="30"></a>
 				  <?php }else{?>
                   <img src="../img/Delete_Icon.png" width="30">
                   <img src="../img/view.png" width="30">

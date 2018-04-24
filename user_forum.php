@@ -110,6 +110,7 @@
               </tfoot>
               <tbody>
               <?php 
+			  error_reporting(~E_NOTICE);
 			  include("../conf/config.php");
 			  $strSQL = "SELECT w.QuestionID,w.Question,concat(w.View,'/',w.Reply) as viewReply ,c.cate_name,w.ip_address,w.Name ,date_format(w.CreateDate,'%d-%M-%Y %H:%i:%S') as CreateDate,w.status FROM webboard w inner join category c on w.cate_id = c.cate_id  order by w.CreateDate desc ";
 		//echo $strSQL;

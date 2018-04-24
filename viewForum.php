@@ -1,7 +1,8 @@
 <?php
+	error_reporting(~E_NOTICE);
 	include("conf/config.php");
 	include "common/common.php";	
-	if($_GET["Action"] == "Save") {
+	if(isset($_GET["Action"]) == "Save") {
 	$ip_address = get_client_ip();
 	//*** Insert Reply ***//
 	$strSQL = "INSERT INTO reply ";

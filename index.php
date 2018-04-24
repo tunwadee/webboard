@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(~E_NOTICE);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +27,7 @@ session_start();
 		}
 	}
 	function view_forum(id){
-		window.location.href='viewForum.php?QuestionID='+id;
+		window.location.href='ViewForum.php?QuestionID='+id;
 	}
 	
 	
@@ -205,7 +206,6 @@ session_start();
 			while ($Result = mysqli_fetch_array($objQuery)) {
 			$i++;
 			$QuestionID = $Result["QuestionID"];
-			$status = $Result["status"];
 			  ?>
                 <tr>
                   <td><?php echo $i;?></td>

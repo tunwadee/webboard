@@ -1,6 +1,7 @@
 <?php
 header("content-type: application/x-javascript; charset=utf-8");
 session_start(); 
+error_reporting(~E_NOTICE);
 //    ค่ากำหนดของ ฐานข้อมูล
     include 'conf/config.php';
 	// Check connection

@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(~E_NOTICE);
 if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin"){
 	include("../conf/config.php");
 	include "../common/common.php";	
@@ -129,7 +130,7 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="admin"){
        </div>
 	   <?php }
 			}?>
-       <form action="ViewForum.php?QuestionID=<?=$_GET["QuestionID"];?>&Action=Save" method="post" name="frmMain" id="frmMain">
+       <form action="viewForum.php?QuestionID=<?=$_GET["QuestionID"];?>&Action=Save" method="post" name="frmMain" id="frmMain">
      
        <div class='card card-register mx-auto mt-5'>
 		<div class='card-body'>

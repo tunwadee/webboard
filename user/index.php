@@ -1,5 +1,6 @@
 <?php 
 session_start();
+error_reporting(~E_NOTICE);
 if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="user" ){
 ?>
 <!DOCTYPE html>
@@ -63,7 +64,7 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="user" ){
             <i class="fa fa-fw fa-users"></i><?php echo $_SESSION["session_user"];?></a>
         </li>
          <li class="nav-item">     
-            <a  href="user/index.php" class="nav-link"><i class="fa fa-fw fa-unlock"></i>จัดการข้อมูลส่วนตัว</a>
+            <a  href="index.php" class="nav-link"><i class="fa fa-fw fa-unlock"></i>จัดการข้อมูลส่วนตัว</a>
        </li> 
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -136,7 +137,7 @@ if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="user" ){
 			  ?>
                 <tr>
                   <td><?php echo $i;?></td>
-				  <td><?php echo $Result["Question"].$Result["QuestionID"];?></td>
+				  <td><?php echo $Result["Question"];?></td>
                   <td><?php echo $Result["viewReply"];?></td>
                   <td><?php echo $Result["cate_name"];?></td>
                   <td><?php echo $Result["Name"]."[".$Result["ip_address"]."]";?></td>

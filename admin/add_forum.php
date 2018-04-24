@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(~E_NOTICE);
 	include "../conf/config.php";
 	include "../common/common.php";
 	$question = $_POST["question"];

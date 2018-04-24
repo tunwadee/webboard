@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	error_reporting(~E_NOTICE);
 	include "../conf/config.php";
 	include "../common/common.php";
 	

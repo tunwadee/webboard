@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(~E_NOTICE);
 if($_SESSION["session_user"]!="" && $_SESSION["user_type"]=="user"){
 
 	include "../conf/config.php";
